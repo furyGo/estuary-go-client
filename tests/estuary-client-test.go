@@ -1,9 +1,9 @@
 package main
 
 import (
-	"estuary-go-client/api"
-	"estuary-go-client/core"
 	"fmt"
+	"github.com/furyGo/estuary-go-client/api"
+	"github.com/furyGo/estuary-go-client/core"
 )
 
 func main() {

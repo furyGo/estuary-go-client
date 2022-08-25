@@ -3,8 +3,8 @@ package core
 import (
 	"bytes"
 	"encoding/json"
-	"estuary-go-client/api"
 	"fmt"
+	"github.com/furyGo/estuary-go-client/api"
 	"io"
 	"io/ioutil"
 	"log"
