@@ -1,5 +1,7 @@
 package api
 
+import "time"
+
 type Response interface {
 	GetError() string
 	GetStatusCode() int
@@ -144,8 +146,32 @@ func (response *ContentDealsResponse) GetContent() Response {
 //}
 type ContentStatusResponse struct {
 	Content       ContentStatusContentResponse `json:"content"`
-	Deals         []interface{}                `json:"deals"`
+	Deals         []ContentStatusDeals         `json:"deals"`
 	FailuresCount int64                        `json:"failuresCount"`
+}
+
+type ContentStatusDeals struct {
+	CreatedAt           time.Time `json:"CreatedAt"`
+	DeletedAt           time.Time `json:"DeletedAt"`
+	Id                  int64     `json:"ID"`
+	UpdatedAt           time.Time `json:"UpdatedAt"`
+	Content             int64     `json:"content"`
+	DealId              int64     `json:"dealId"`
+	DealUuid            string    `json:"dealUuid"`
+	DealProtocolVersion string    `json:"deal_protocol_version"`
+	DtChan              string    `json:"dtChan"`
+	Failed              bool      `json:"failed"`
+	FailedAt            time.Time `json:"failedAt"`
+	Miner               string    `json:"miner"`
+	MinerVersion        string    `json:"miner_version"`
+	OnChainAt           time.Time `json:"onChainAt"`
+	PropCid             string    `json:"propCid"`
+	SealedAt            time.Time `json:"sealedAt"`
+	Slashed             bool      `json:"slashed"`
+	TransferFinished    time.Time `json:"transferFinished"`
+	TransferStarted     time.Time `json:"transferStarted"`
+	UserId              int64     `json:"user_id"`
+	Verified            bool      `json:"verified"`
 }
 
 type ContentStatusContentResponse struct {
