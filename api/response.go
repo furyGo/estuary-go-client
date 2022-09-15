@@ -145,9 +145,14 @@ func (response *ContentDealsResponse) GetContent() Response {
 // "failuresCount": 0
 //}
 type ContentStatusResponse struct {
-	Content       ContentStatusContentResponse `json:"content"`
-	Deals         []ContentStatusDeals         `json:"deals"`
-	FailuresCount int64                        `json:"failuresCount"`
+	Content       ContentStatusContentResponse  `json:"content"`
+	Deals         []ContentStatusDealsContainer `json:"deals"`
+	FailuresCount int64                         `json:"failuresCount"`
+}
+
+type ContentStatusDealsContainer struct {
+	Deal         ContentStatusDeals `json:"deal"`
+	OnChainState interface{}        `json:"onChainState"`
 }
 
 type ContentStatusDeals struct {
